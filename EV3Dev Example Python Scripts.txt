@@ -1,0 +1,86 @@
+EV3Dev Example Python Scripts 
+
+
+EV3 and NXT Large Motors 
+
+import ev3dev.ev3 as ev3   
+m = ev3.LargeMotor('outA')   
+m.run_timed(speed_sp=300, time_sp=1000)   
+
+EV3 Medium Motors 
+
+import ev3dev.ev3 as ev3   
+m=ev3.MediumMotor ('outA')   
+m.run_timed(speed_sp=300, time_sp=1000)   
+
+RCX and Powerfunctions Motors 
+
+On the EV3 brick Select - Device Browser - Ports - ev3-ports:outA - Set mode - dc-motor 
+
+import ev3dev2.motor as ev3  
+m = ev3.DcMotor('outA')  
+m.run_timed(time_sp=3000, duty_cycle_sp=100)  
+
+EV3 and NXT Touch Sensors 
+
+import ev3dev.ev3 as ev3  
+ts = ev3.TouchSensor()  
+ts.connected  
+print(ts.value())  
+
+EV3 Ultrasonic Sensor 
+
+import ev3dev.ev3 as ev3   
+us = ev3.UltrasonicSensor ('in1')   
+us.mode = 'US-DIST-CM'   
+print(us.value(), "mm")  
+
+EV3 Gyro Sensor 
+
+import ev3dev.ev3 as ev3  
+gy = ev3.GyroSensor('in1')   
+print(gy.value())  
+
+EV3 Color Sensor 
+
+import ev3dev.ev3 as ev3  
+cs = ev3.ColorSensor('in1')  
+cs.mode = 'COL-COLOR' 
+print(cs.value())  
+
+NXT Ultrasonic Sensor 
+
+import ev3dev.ev3 as ev3   
+us = ev3.UltrasonicSensor('in1')   
+us.mode = 'US-DIST-CM'   
+print(us.value(), "cm") 
+
+EV3 Infrared Sensor 
+
+import ev3dev.ev3 as ev3  
+ir = ev3.InfraredSensor('in1')  
+ir.mode = 'IR-PROX'  
+print(ir.value()) 
+
+NXT Light Sensor 
+
+import ev3dev.ev3 as ev3  
+l = ev3.LightSensor('in1')  
+l.mode = 'AMBIENT' 
+print(l.value())  
+
+NXT Sound Sensor 
+
+On the EV3 brick Select - Device Browser - Ports - ev3-ports:in1 - Set device - lego-nxt-sound 
+And Select - Device Browser - Ports - ev3-ports:in1 - Set mode - nxt-analog 
+
+import ev3dev.ev3 as ev3  
+s = ev3.SoundSensor('in1')  
+print(s.value())  
+
+ 
+For more detailed information on sensor modes and motor control functions as well as other types of supported sensors and motors see the link below: 
+
+http://docs.ev3dev.org/projects/lego-linux-drivers/en/ev3dev-jessie/sensors.html 
+
+ 
